@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <!--show Title, Name of Pet, Photo(if present) (if available: Show Available in BOLD)-->
+    <h1> Pets </h1>
+    <ul> 
+        {% for pet in pets %} 
+            {{ pet.name }} 
+
+            {% if pet.photo_url %}
+                <img src = "{{ pet.photo_url }}" alt = "Pet Photo">
+            {% endif %} 
+
+            {% if pet.available %} 
+                <p>{{ pet.name }} is <b>Available</b></p>
+            {% else %}
+                <p>Not Available</p>
+            {% endif %} 
+
+        {% endfor %}  
+
+
+    </ul>
+    <form action="/add">
+        <button>Add a Pet</button>
+    </form>
+    
+    
+</body>
+</html>
